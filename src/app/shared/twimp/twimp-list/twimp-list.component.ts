@@ -20,6 +20,13 @@ export class TwimpListComponent implements OnInit {
     this.twimps.push(new Twimp('2', '', this.authors[0], this.text, '01/01/2000'));
     this.twimps.push(new Twimp('3', '', this.authors[0], this.text, '01/01/2000'));
     this.twimps.push(new Twimp('4', '', this.authors[0], this.text, '01/01/2000'));
-    console.log(this.twimps);
+  }
+
+  updateFavorite(event) {
+    this.twimps.forEach(twimp => {
+      if (twimp.id === event) {
+        twimp.favorite = !twimp.favorite;
+      }
+    });
   }
 }

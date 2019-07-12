@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 import { Twimp } from '../twimp.model';
 
@@ -9,4 +9,9 @@ import { Twimp } from '../twimp.model';
 })
 export class TwimpCardComponent {
   @Input() twimp: Twimp;
+  @Output() updateFavorite = new EventEmitter();
+
+  setFavorite(twimpId: string) {
+    this.updateFavorite.emit(twimpId);
+  }
 }
