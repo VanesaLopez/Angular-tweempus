@@ -29,4 +29,8 @@ export class TwimpListComponent implements OnInit {
       }
     });
   }
+
+  trackByTwimps(index: number, twimp: Twimp) {
+    return twimp.id;
+  }
 }

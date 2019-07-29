@@ -29,7 +29,7 @@ export class Author {
 
     set id(id: string) {
         this._id = id;
-    }
+    } 
 
     set url(url: string) {
         this._url = url;

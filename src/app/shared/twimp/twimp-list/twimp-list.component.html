@@ -1,5 +1,3 @@
-<section class="twimp_list">
-  <tweempus-twimp-card [twimp]="twimps[0]" (updateFavorite)="updateFavorite($event)"></tweempus-twimp-card>
-  <tweempus-twimp-card [twimp]="twimps[1]" (updateFavorite)="updateFavorite($event)"></tweempus-twimp-card>
-  <tweempus-twimp-card [twimp]="twimps[2]" (updateFavorite)="updateFavorite($event)"></tweempus-twimp-card>
+<section *ngFor="let twimp of twimps; trackBy: trackByTwimps" class="twimp_list">
+  <tweempus-twimp-card [twimp]="twimps" (updateFavorite)="updateFavorite($event)"></tweempus-twimp-card>
 </section>
