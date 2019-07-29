@@ -9,8 +9,7 @@ import { Author } from '../../author/author.model';
   styleUrls: ['./twimp-list.component.css']
 })
 export class TwimpListComponent implements OnInit {
-  text = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam efficitur sodales libero,
-    sit amet posuere arcu consectetur ut. Nam volutpat ligula ac nunc consectetur vestibulum.`;
+  text: string = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam efficitur sodales libero, sit amet posuere arcu consectetur ut. Nam volutpat ligula ac nunc consectetur vestibulum.';
   authors: Author[] = [];
   twimps: Twimp[] = [];
 

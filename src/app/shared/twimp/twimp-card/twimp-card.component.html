@@ -3,11 +3,11 @@
 	<div class="twimp_header">
 		<img class="twimp_header_img" [src]="twimp._author._image" alt="Imagen de un twimp">
 		<a class="twimp_header_name" [href]="twimp._author._url" target="_b">by {{twimp._author._fullName}}</a>
-		<div class="twimp_header_date">Published on {{twimp.timestamp}}</div>
+		<div class="twimp_header_date">Published on {{twimp._timestamp}}</div>
 	</div>
 
 	<div class="twimp_content">
-		{{twimp.content}}
+		{{twimp._content}}
 	</div>
 
 	<hr class="twimp_line">
@@ -15,7 +15,7 @@
 	<div class="twimp_fav">
 		<a class="fav_icon"
 		[ngClass]="{'fav_icon-selected': twimp.favorite}"
-		(click)="setFavorite(twimp.id)" href="#">&#10084;</a>
+		(click)="setFavorite(twimp.id)">&#10084;</a>
 	</div>
 
 </section>

@@ -65,4 +65,3 @@ export class Twimp {
         this._favorite = favorite;
     }
 }
-
