@@ -22,7 +22,8 @@ const profileRoutes: Routes = [
             {
                 path: 'favorite-twimps',
                 component: FavoriteTwimpsComponent
-            }
+            },
+
         ]
     },
 ];
