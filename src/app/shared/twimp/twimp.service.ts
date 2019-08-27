@@ -32,7 +32,14 @@ export class TwimpService {
 
   getFavoritesByAuthor(idAuthor: string, idTwimp: string): Observable<boolean> {
       return this.httpClinet.get(`${this.urlFavorite}/${idAuthor}`).pipe(
-        map(response => true),
+        map(response => {
+          const favorites: string[] = response['twimps'];
+          if (favorites.indexOf(idTwimp) === -1) {
+            return false;
+          } else {
+            return true;
+          }
+        }),
         catchError(this.handleError)
       );
   }

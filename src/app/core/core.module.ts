@@ -5,6 +5,8 @@ import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { NavComponent } from './nav/nav.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthGuardService } from './auth-guard.service';
+import { AuthenticationService } from './authentication.service';
 
 @NgModule({
   imports: [
@@ -12,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
     RouterModule,
     HttpClientModule
   ],
+  providers: [AuthGuardService, AuthenticationService],
   declarations: [HeaderComponent, NavComponent],
   exports: [HeaderComponent, NavComponent]
 })
