@@ -31,11 +31,14 @@ export class AuthenticationService {
   }
 
   logout(): void {
-    this.deleteSession().subscribe(response => {
-      this.token = null;
-      if (localStorage.getItem('token')) localStorage.removeItem('token');
-      this.router.navigate(['/login']);
-    });
+    if (this.token) {
+      this.deleteSession().subscribe(response => {
+        this.token = null;
+        this.deleteLocalToken();
+      });
+    } else {
+      this.deleteLocalToken();
+    }
   }
 
   generateToken(): string {
@@ -58,6 +61,13 @@ export class AuthenticationService {
     return this.httpClient.post(this.url, session).pipe(
       catchError(this.handleError)
     );
+  }
+
+  deleteLocalToken() {
+    if (localStorage.getItem('token')) {
+      localStorage.removeItem('token');
+    }
+    this.router.navigate(['/login']);
   }
 
   deleteSession(): Observable<object> {
