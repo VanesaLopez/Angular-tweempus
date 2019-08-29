@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 import { Twimp } from '../twimp.model';
 
@@ -9,13 +9,10 @@ import { Twimp } from '../twimp.model';
 })
 export class TwimpListComponent {
   @Input() twimps: Twimp[];
+  @Output() updateTwimps = new EventEmitter;
 
   updateFavorite(event) {
-    this.twimps.forEach(twimp => {
-      if (twimp.id === event) {
-        twimp.favorite = !twimp.favorite;
-      }
-    });
+    this.updateTwimps.emit(event);
   }
 
   trackByTwimps(index: number, twimp: Twimp) {

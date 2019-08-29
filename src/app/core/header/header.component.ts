@@ -11,7 +11,7 @@ export class HeaderComponent {
   constructor(private authService: AuthenticationService) { }
 
   checkLogin() {
-    if(this.authService.token !== null) {
+    if(this.authService.token !== null || this.authService.isLoginInLocal()) {
       return true;
     } else {
       return false;

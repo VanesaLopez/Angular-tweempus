@@ -1,5 +1,8 @@
 <section class="main section_dashboard">
 
-    <tweempus-twimp-list [twimps]="twimpList"></tweempus-twimp-list>
+    <tweempus-twimp-list
+        (updateTwimps)="updateTwimps($event)"
+        [twimps]="twimpList">
+    </tweempus-twimp-list>
 
 </section>

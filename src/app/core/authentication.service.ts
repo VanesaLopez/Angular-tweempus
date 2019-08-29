@@ -24,6 +24,7 @@ export class AuthenticationService {
       const tokenGenerated = this.generateToken();
       this.saveSession(tokenGenerated, author.id).subscribe(response => {
         this.token = new Token(response['id'], response['author']);
+        localStorage.setItem('token', tokenGenerated);
         this.router.navigate(['/dashboard']);
       });
     });
@@ -32,6 +33,7 @@ export class AuthenticationService {
   logout(): void {
     this.deleteSession().subscribe(response => {
       this.token = null;
+      if (localStorage.getItem('token')) localStorage.removeItem('token');
       this.router.navigate(['/login']);
     });
   }
@@ -62,6 +64,10 @@ export class AuthenticationService {
     return this.httpClient.delete(`${this.url}/${this.token.key}`).pipe(
       catchError(this.handleError)
     );
+  }
+
+  isLoginInLocal() {
+    return localStorage.getItem('token');
   }
 
   handleError(error: any) {
