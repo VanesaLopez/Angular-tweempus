@@ -8,6 +8,7 @@ import { Author } from './author.model';
 export class AuthorService {
 
   private url = 'http://localhost:3000/authors';
+  private urlFav = 'http://localhost:3000/author-favorites';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -22,6 +23,22 @@ export class AuthorService {
         author.url = `http://localhost:4200/author/${dbAuthor.id}`;
         return author;
       }),
+      catchError(this.handleError)
+    );
+  }
+
+  setAuthor(idAuthor: string, fullName: string, image: string): Observable<any> {
+    const dbAuthor = {'id': idAuthor, 'fullName': fullName, 'image': image};
+
+    return this.httpClient.post(this.url, dbAuthor).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  createFavorite(idAuthor: string): Observable<any> {
+    const dbAuthorFav = {'id': idAuthor, 'twimps': []};
+
+    return this.httpClient.post(this.urlFav, dbAuthorFav).pipe(
       catchError(this.handleError)
     );
   }
