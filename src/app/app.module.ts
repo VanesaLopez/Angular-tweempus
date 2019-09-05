@@ -11,6 +11,7 @@ import { ProfileModule } from './profile/profile.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { ErrorModule } from './error/error.module';
 import { HeaderInterceptor } from './core/header.interceptor';
+import { CreateTwimpModule } from './create-twimp/create-twimp.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { HeaderInterceptor } from './core/header.interceptor';
     LoginModule,
     ProfileModule,
     DashboardModule,
-    ErrorModule
+    ErrorModule,
+    CreateTwimpModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

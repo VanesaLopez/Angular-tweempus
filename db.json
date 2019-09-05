@@ -9,11 +9,41 @@
       "id": "2",
       "fullName": "David Teitelbaum",
       "image": "https://randomuser.me/api/portraits/men/82.jpg"
+    },
+    {
+      "id": "Vanesa",
+      "fullName": "Vanesa",
+      "image": ""
+    },
+    {
+      "id": "vane",
+      "fullName": "vanesa",
+      "image": ""
     }
   ],
   "authenticated": [
     {
-      "id": "PyguH1566902343097",
+      "id": "UmKIE1567075966090",
+      "author": "1"
+    },
+    {
+      "id": "dAOGa1567076528833",
+      "author": "1"
+    },
+    {
+      "id": "C5sD71567078614347",
+      "author": "1"
+    },
+    {
+      "id": "N0IhJ1567514432847",
+      "author": "Vanesa"
+    },
+    {
+      "id": "3wsl71567514921987",
+      "author": "vane"
+    },
+    {
+      "id": "ioCpJ1567676056062",
       "author": "1"
     }
   ],
@@ -31,20 +61,35 @@
       "by": "David Teitelbaum",
       "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam efficitur sodales libero, sit amet posuere arcu consectetur ut. Nam volutpat ligula ac nunc consectetur vestibulum.",
       "timestamp": "12-10-2016"
+    },
+    {
+      "id": "2",
+      "author": "1",
+      "by": "Author",
+      "content": "hola esto es un twimp",
+      "timestamp": "5-9-2019"
     }
   ],
   "author-favorites": [
     {
       "id": "1",
       "twimps": [
-        "T4qdo1483390015454"
+        "2"
       ]
     },
     {
       "id": "2",
       "twimps": [
-        "Mx5Cf1483389903318"
+        "T4qdo1483390015454"
       ]
+    },
+    {
+      "id": "Vanesa",
+      "twimps": []
+    },
+    {
+      "id": "vane",
+      "twimps": []
     }
   ],
   "author-twimps": [

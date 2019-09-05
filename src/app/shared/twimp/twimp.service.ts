@@ -61,4 +61,18 @@ export class TwimpService {
     return Observable.throw(errMsg);
   }
 
+  setTwimp(twimp: Twimp): Observable<any> {
+    const dbTwimp: any = {
+      'id': twimp.id,
+      'author': twimp.author.id,
+      'by': twimp.author.fullName,
+      'content': twimp.content,
+      'timestamp': twimp.timestamp
+    };
+
+    return this.httpClinet.post(this.url, dbTwimp).pipe(
+      catchError(this.handleError)
+    );
+  }
+
 }
