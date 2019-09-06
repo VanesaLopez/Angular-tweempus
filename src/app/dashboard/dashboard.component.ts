@@ -22,7 +22,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.twimpService.getTwimps().subscribe(twimps => {
       from(twimps).subscribe(twimp => {
-        this.authorService.getAuthor(this.authService.token.idAuthor).subscribe(author => {
+        this.authorService.getAuthor(twimp.author.id).subscribe(author => {
           twimp.author = author;
           this.twimpService.getFavoritesByAuthor(this.authService.token.idAuthor, twimp.id).subscribe(favorite => {
             twimp.favorite = favorite;

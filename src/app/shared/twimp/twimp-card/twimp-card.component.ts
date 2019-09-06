@@ -11,7 +11,7 @@ export class TwimpCardComponent {
   @Input() twimp: Twimp;
   @Output() updateFavorite = new EventEmitter();
 
-  setFavorite(twimpId: string) {
-    this.updateFavorite.emit(twimpId);
+  setFavorite(twimp: Twimp) {
+    this.updateFavorite.emit(twimp);
   }
 }
