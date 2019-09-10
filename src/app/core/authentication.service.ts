@@ -5,11 +5,12 @@ import { Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { AuthorService } from '../shared/author/author.service';
 import { Token } from './token.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class AuthenticationService {
 
-  private url = 'http://localhost:3000/authenticated';
+  private url = `${environment.url}authenticated`;
 
   token: Token = null;
 
@@ -17,14 +18,19 @@ export class AuthenticationService {
     private httpClient: HttpClient,
     private authorService: AuthorService,
     private router: Router
-  ) { }
+  ) {
+    if (localStorage.getItem('token') != null) {
+      const tokenLS = JSON.parse(localStorage.getItem('token'));
+      this.token = new Token(tokenLS['_key'], tokenLS['_idAuthor']);
+    }
+   }
 
   login(idAuthor: string): void {
     this.authorService.getAuthor(idAuthor).subscribe(author => {
       const tokenGenerated = this.generateToken();
       this.saveSession(tokenGenerated, author.id).subscribe(response => {
         this.token = new Token(response['id'], response['author']);
-        localStorage.setItem('token', tokenGenerated);
+        localStorage.setItem('token', JSON.stringify(this.token));
         this.router.navigate(['/dashboard']);
       });
     });

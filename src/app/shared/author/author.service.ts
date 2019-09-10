@@ -27,6 +27,14 @@ export class AuthorService {
     );
   }
 
+  updateAuthor(idAuthor: string, fullName: string, image: string): Observable<any> {
+    const dbAuthor: any = { 'id': idAuthor, 'fullName': fullName, 'image': image };
+
+    return this.httpClient.patch(this.url + '/' + idAuthor, dbAuthor).pipe(
+      catchError(this.handleError)
+    );
+  }
+
   setAuthor(idAuthor: string, fullName: string, image: string): Observable<any> {
     const dbAuthor = {'id': idAuthor, 'fullName': fullName, 'image': image};
 

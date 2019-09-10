@@ -7,13 +7,16 @@ import { ProfileRoutingModule } from './profile-routing.module';
 import { ProfileComponent } from './profile.component';
 import { MyTwimpsComponent } from './my-twimps/my-twimps.component';
 import { FavoriteTwimpsComponent } from './favorite-twimps/favorite-twimps.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     SharedModule,
-    ProfileRoutingModule
+    ProfileRoutingModule,
+    ReactiveFormsModule
   ],
-  declarations: [ProfileComponent, MyTwimpsComponent, FavoriteTwimpsComponent]
+  declarations: [ProfileComponent, MyTwimpsComponent, FavoriteTwimpsComponent, EditProfileComponent]
 })
 export class ProfileModule { }
